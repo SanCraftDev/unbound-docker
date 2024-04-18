@@ -12,3 +12,5 @@ COPY --chown=nobody:nobody unbound.conf /etc/unbound/unbound.conf
 USER nobody:nobody
 ENTRYPOINT ["tini", "--", "unbound-control", "start"]
 HEALTHCHECK CMD if [ "$(dig example.org IN A +short @127.0.0.1 | grep '^[0-9.]\+$' | sort | head -n1)" != "$(dig example.org IN A +short +https +tls-ca=/etc/ssl/certs/ca-certificates.crt @1.1.1.1 | grep '^[0-9.]\+$' | sort | head -n1)" ]; then unbound-control stop; fi || exit 1
+EXPOSE 53/tcp
+EXPOSE 53/udp
