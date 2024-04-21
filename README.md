@@ -1,5 +1,7 @@
 # unbound-docker
 
+This docker image contains unbound and can be used as the upstream dns resolver in adguardhome.
+
 ```yml
 services:
   adguardhome:
