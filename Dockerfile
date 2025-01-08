@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:labs
-FROM alpine:3.21.1
+FROM alpine:3.21.2
 
 RUN apk upgrade --no-cache -a && \
     apk add --no-cache ca-certificates tzdata tini unbound bind-tools && \
